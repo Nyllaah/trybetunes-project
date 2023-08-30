@@ -4,16 +4,9 @@ import { createUser } from '../services/userAPI';
 
 export default function Login() {
   const navigate = useNavigate();
-  // const [name, setName] = useState('');
   const [nameIpt, setNameIpt] = useState({ name: '' });
   const [disabled, setDisabled] = useState(true);
-
-  // por que o estado name nao funciona nesse caso?
-  //   function validation() {
-  //     if (name.length >= 3) {
-  //       setDisabled(false);
-  //     }
-  //   }
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { value } = e.target;
@@ -21,31 +14,32 @@ export default function Login() {
     return value.length >= 3 ? setDisabled(false) : setDisabled(true);
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLElement>) {
     e.preventDefault();
-    // ver o que fazer aqui
-    createUser({ name: nameIpt.name });
+    setIsLoading(true);
+    await createUser({ name: nameIpt.name });
     navigate('/search');
-    setNameIpt({ name: '' });
   }
 
   return (
-    <form onSubmit={ handleSubmit }/* onChange={ validation } */>
-      <input
-        type="text"
-        data-testid="login-name-input"
-        placeholder="Nome"
-        onChange={ handleChange }
-        value={ nameIpt.name }
-      />
-      <button
-        type="submit"
-        data-testid="login-submit-button"
-        disabled={ disabled }
-      >
-        Entrar
+    !isLoading
+      ? <form onSubmit={ handleSubmit }>
+        <input
+          type="text"
+          data-testid="login-name-input"
+          placeholder="Nome"
+          onChange={ handleChange }
+          value={ nameIpt.name }
+        />
+        <button
+          type="submit"
+          data-testid="login-submit-button"
+          disabled={ disabled }
+        >
+          Entrar
 
-      </button>
-    </form>
+        </button>
+      </form>
+      : <span>Carregando...</span>
   );
 }
