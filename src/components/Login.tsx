@@ -11,7 +11,8 @@ export default function Login() {
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { value } = e.target;
     setNameIpt({ name: value });
-    return value.length >= 3 ? setDisabled(false) : setDisabled(true);
+    return setDisabled(value.length < 3);
+    // return value.length >= 3 ? setDisabled(false) : setDisabled(true);
   }
 
   async function handleSubmit(e: React.FormEvent<HTMLElement>) {
@@ -23,23 +24,24 @@ export default function Login() {
 
   return (
     !isLoading
-      ? <form onSubmit={ handleSubmit }>
-        <input
-          type="text"
-          data-testid="login-name-input"
-          placeholder="Nome"
-          onChange={ handleChange }
-          value={ nameIpt.name }
-        />
-        <button
-          type="submit"
-          data-testid="login-submit-button"
-          disabled={ disabled }
-        >
-          Entrar
+      ? (
+        <form onSubmit={ handleSubmit }>
+          <input
+            type="text"
+            data-testid="login-name-input"
+            placeholder="Nome"
+            onChange={ handleChange }
+            value={ nameIpt.name }
+          />
+          <button
+            type="submit"
+            data-testid="login-submit-button"
+            disabled={ disabled }
+          >
+            Entrar
 
-        </button>
-      </form>
+          </button>
+        </form>)
       : <span>Carregando...</span>
   );
 }
