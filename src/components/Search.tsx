@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from './Loading';
 import { AlbumType } from '../types';
 import AlbumList from './AlbumList';
-// import AlbumList from './AlbumList';
+import Form from './Form';
 
 export default function Search() {
   const [iptValue, setIptValue] = useState<string>('');
@@ -14,7 +13,7 @@ export default function Search() {
   const [searchResult, setSearchResult] = useState<AlbumType[]>([]);
   const [resultNotFound, setResultNotFound] = useState<boolean>(false);
 
-  async function handleSearchBtn(e:React.FormEvent<HTMLElement>) {
+  const handleSearchBtn = async (e:React.FormEvent<HTMLElement>) => {
     e.preventDefault();
     setIsLoading(true);
 
@@ -26,13 +25,23 @@ export default function Search() {
     setIptValue('');
     setShowSearchResult(true);
     setIsLoading(false);
-  }
+  };
 
   if (isLoading) return <Loading />;
 
   return (
     <>
-      <form onSubmit={ handleSearchBtn }>
+      <Form
+        onSubmit={ handleSearchBtn }
+        iptType="text"
+        iptTestId="search-artist-input"
+        inputValue={ iptValue }
+        onChange={ ({ target }) => setIptValue(target.value) }
+        btnTestId="search-artist-button"
+        disabled={ iptValue.length < 2 }
+        btnText="Pesquisar"
+      />
+      {/* <form onSubmit={ handleSearchBtn }>
         <input
           data-testid="search-artist-input"
           type="text"
@@ -46,7 +55,7 @@ export default function Search() {
           Pesquisar
 
         </button>
-      </form>
+      </form> */}
 
       {showSearchResult && (<span>{`Resultado de álbuns de: ${currentSearch}`}</span>)}
 

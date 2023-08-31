@@ -26,3 +26,15 @@ export type AlbumListTypes = {
   searchResult: AlbumType[],
   resultNotFound: boolean
 };
+
+export type FormTypes = {
+  onSubmit: (e: React.FormEvent<HTMLElement>) => Promise<void>,
+  iptType: string,
+  iptTestId: string,
+  inputValue: string,
+  onChange: ({ target }: { target: any; }) => void,
+  placeholder?: string,
+  btnTestId: string,
+  disabled: boolean,
+  btnText: string
+};
