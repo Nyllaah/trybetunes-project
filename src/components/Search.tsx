@@ -41,21 +41,6 @@ export default function Search() {
         disabled={ iptValue.length < 2 }
         btnText="Pesquisar"
       />
-      {/* <form onSubmit={ handleSearchBtn }>
-        <input
-          data-testid="search-artist-input"
-          type="text"
-          value={ iptValue }
-          onChange={ ({ target }) => setIptValue(target.value) }
-        />
-        <button
-          disabled={ iptValue.length < 2 }
-          data-testid="search-artist-button"
-        >
-          Pesquisar
-
-        </button>
-      </form> */}
 
       {showSearchResult && (<span>{`Resultado de álbuns de: ${currentSearch}`}</span>)}
 
