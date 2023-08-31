@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
+import Loading from './Loading';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -42,6 +43,6 @@ export default function Login() {
 
           </button>
         </form>)
-      : <span>Carregando...</span>
+      : <Loading />
   );
 }
