@@ -11,7 +11,6 @@ export default function Header() {
     const getUsername = async () => {
       setIsLoading(true);
       const data = await getUser();
-      console.log(data);
       setUsername(data.name);
       setIsLoading(false);
     };
