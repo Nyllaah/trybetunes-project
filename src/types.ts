@@ -22,6 +22,8 @@ export type SongType = {
   previewUrl: string,
 };
 
+export type AlbumSongsType = [AlbumType, ...SongType[]] | [];
+
 export type AlbumListTypes = {
   searchResult: AlbumType[],
   resultNotFound: boolean
