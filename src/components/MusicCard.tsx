@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './MusicCards.css';
 import checkedHeart from '../images/checked_heart.png';
 import emptyHeart from '../images/empty_heart.png';
-import { MusicCardTypes, SongType } from '../types';
+import { MusicCardTypes } from '../types';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
 
 export default function MusicCard({ song }: MusicCardTypes) {
