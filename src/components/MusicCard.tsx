@@ -1,17 +1,24 @@
 import { useState } from 'react';
-import { SongType } from '../types';
 import './MusicCards.css';
 import checkedHeart from '../images/checked_heart.png';
 import emptyHeart from '../images/empty_heart.png';
-import { addSong } from '../services/favoriteSongsAPI';
+import { MusicCardTypes, SongType } from '../types';
+import { addSong, removeSong } from '../services/favoriteSongsAPI';
 
-export default function MusicCard({ trackId, trackName, previewUrl }: SongType) {
+export default function MusicCard({ song }: MusicCardTypes) {
   const [favorited, setFavorite] = useState(false);
 
-  function handleFavorite() {
-    // addSong(e.tar);
-    setFavorite(!favorited);
+  function addRemoveFavorite() {
+    if (favorited) {
+      addSong(song);
+    } else {
+      removeSong(song);
+    }
   }
+
+  addRemoveFavorite();
+
+  const { trackId, trackName, previewUrl } = song;
 
   return (
     <>
@@ -23,12 +30,13 @@ export default function MusicCard({ trackId, trackName, previewUrl }: SongType) 
         <img src={ favorited ? checkedHeart : emptyHeart } alt="favorite" />
       </label>
       <input
-        checked={ favorited }
-        onChange={ handleFavorite }
         type="checkbox"
+        onChange={ () => setFavorite(!favorited) }
+        checked={ favorited }
         id={ `checkbox-music-${trackId}` }
         className="favorite-btn"
       />
+
       <audio data-testid="audio-component" src={ previewUrl } controls>
         <track kind="captions" />
         O seu navegador não suporta o elemento

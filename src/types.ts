@@ -40,3 +40,7 @@ export type FormTypes = {
   disabled: boolean,
   btnText: string
 };
+
+export type MusicCardTypes = {
+  song: SongType
+};

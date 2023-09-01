@@ -28,14 +28,9 @@ export default function Album() {
     <>
       <h1 data-testid="artist-name">{album?.artistName}</h1>
       <h2 data-testid="album-name">{album?.collectionName}</h2>
-      {songList.map(({ trackId, trackName, previewUrl }, index) => {
-        return (index !== 0
-          && <MusicCard
-            key={ trackId }
-            trackId={ trackId }
-            trackName={ trackName }
-            previewUrl={ previewUrl }
-          />
+      {songList.map((song) => {
+        return (
+          <MusicCard key={ song.trackId } song={ song } />
         );
       })}
     </>
