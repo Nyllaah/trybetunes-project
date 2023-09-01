@@ -3,11 +3,13 @@ import { SongType } from '../types';
 import './MusicCards.css';
 import checkedHeart from '../images/checked_heart.png';
 import emptyHeart from '../images/empty_heart.png';
+import { addSong } from '../services/favoriteSongsAPI';
 
 export default function MusicCard({ trackId, trackName, previewUrl }: SongType) {
   const [favorited, setFavorite] = useState(false);
 
   function handleFavorite() {
+    // addSong(e.tar);
     setFavorite(!favorited);
   }
 
@@ -15,19 +17,18 @@ export default function MusicCard({ trackId, trackName, previewUrl }: SongType) 
     <>
       <p>{trackName}</p>
       <label
-        htmlFor="favorite-btn"
+        htmlFor={ `checkbox-music-${trackId}` }
+        data-testid={ `checkbox-music-${trackId}` }
       >
         <img src={ favorited ? checkedHeart : emptyHeart } alt="favorite" />
-        <input
-          checked={ favorited }
-          onChange={ handleFavorite }
-          type="checkbox"
-          id="favorite-btn"
-          className="favorite-btn"
-          data-testid={ `checkbox-music-${trackId}` }
-        />
-
       </label>
+      <input
+        checked={ favorited }
+        onChange={ handleFavorite }
+        type="checkbox"
+        id={ `checkbox-music-${trackId}` }
+        className="favorite-btn"
+      />
       <audio data-testid="audio-component" src={ previewUrl } controls>
         <track kind="captions" />
         O seu navegador não suporta o elemento

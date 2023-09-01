@@ -1,11 +1,3 @@
-.favorited {
-  background-image: url('../images/checked_heart.png');
-}
-
-.not-favorited {
-  background-image: url('../images/empty_heart.png');
-}
-
 .favorite-btn {
   display: none;
 }
