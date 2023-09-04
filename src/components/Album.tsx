@@ -4,14 +4,13 @@ import getMusics from '../services/musicsAPI';
 import Loading from './Loading';
 import MusicCard from './MusicCard';
 import { AlbumType, SongType } from '../types';
-import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 export default function Album() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [songList, setSongList] = useState<SongType[]>([]);
   const [album, setAlbum] = useState<AlbumType>();
   const [favList, setFavList] = useState<SongType[]>([]);
-  // const [favorited, setFavorited] = useState(false);
   const { id } = useParams();
 
   useEffect(() => {
@@ -23,7 +22,7 @@ export default function Album() {
       const data = await getFavoriteSongs();
       setFavList(data);
       setIsLoading(false);
-      console.log('envoquei');
+      console.log('chamou');
     }
 
     getSongs();

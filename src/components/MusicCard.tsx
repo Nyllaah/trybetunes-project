@@ -6,21 +6,24 @@ import { MusicCardTypes } from '../types';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
 
 export default function MusicCard({
-  song, isFavorited }: MusicCardTypes) {
+  song, isFavorited, handleLoading }: MusicCardTypes) {
   const { trackId, trackName, previewUrl } = song;
   const [favorited, setFavorited] = useState(isFavorited);
 
-  const handleChange = async (e) => {
+  const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const { target: { checked } } = e;
+    if (handleLoading) {
+      handleLoading(true);
+    }
     setFavorited(checked);
     if (checked) {
       await addSong(song);
-      console.log('add');
     } else {
       await removeSong(song);
-      console.log('remove');
     }
-    console.log('chamou');
+    if (handleLoading) {
+      handleLoading(false);
+    }
   };
 
   return (

@@ -20,6 +20,7 @@ export type SongType = {
   trackId: number,
   trackName: string,
   previewUrl: string,
+  isFavorited?: boolean
 };
 
 export type AlbumSongsType = [AlbumType, ...SongType[]] | [];
@@ -43,5 +44,6 @@ export type FormTypes = {
 
 export type MusicCardTypes = {
   song: SongType,
-  isFavorited: boolean
+  isFavorited: boolean,
+  handleLoading?: (param: boolean) => void
 };
