@@ -10,7 +10,6 @@ export default function Profile() {
 
   useEffect(() => {
     const getUserInfo = async () => {
-      // setIsLoading(true);
       const userInfo = await getUser();
       setUser(userInfo);
       setIsLoading(false);
@@ -24,16 +23,11 @@ export default function Profile() {
   return (
     <>
       <h1>Profile</h1>
-      <img src={ user.image } alt="profile" data-testid="profile-image" />
-      <div>
-        <p>{user.name}</p>
-      </div>
-      <div>
-        <p>{user.email}</p>
-      </div>
-      <div>
-        <p>{user.description}</p>
-      </div>
+      <img src={ user?.image } alt="profile" data-testid="profile-image" />
+      <p>{user?.name}</p>
+      <p>{user?.email}</p>
+      <p>{user?.description}</p>
+
       <Link to="/profile/edit">Editar perfil</Link>
     </>
 

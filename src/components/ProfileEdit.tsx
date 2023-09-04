@@ -5,7 +5,16 @@ import Loading from './Loading';
 
 export default function ProfileEdit() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [user, setUser] = useState<UserType>();
+  const [user, setUser] = useState<UserType>({
+    name: '',
+    email: '',
+    description: '',
+    image: '',
+  });
+
+  const handleChange = (e) => {
+    const { value } = e.target;
+  };
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -24,14 +33,25 @@ export default function ProfileEdit() {
     <>
       <h1>Profile Edit</h1>
       <form action="">
-        <input type="text" placeholder={ user?.name } data-testid="edit-input-name" />
-        <input type="text" placeholder={ user?.email } data-testid="edit-input-email" />
         <input
           type="text"
-          placeholder={ user?.description }
+          onChange={ handleChange }
+          value={ user.name }
+          data-testid="edit-input-name"
+        />
+        <input
+          type="text"
+          onChange={ handleChange }
+          value={ user.email }
+          data-testid="edit-input-email"
+        />
+        <input
+          type="text"
+          onChange={ handleChange }
+          placeholder={ user.description }
           data-testid="edit-input-description"
         />
-        <input type="text" placeholder={ user?.image } data-testid="edit-input-image" />
+        <input type="text" value={ user.image } data-testid="edit-input-image" />
       </form>
     </>
   );
