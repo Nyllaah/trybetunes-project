@@ -1,3 +1,4 @@
+import { favoriteSongsList } from '../tests/mocks';
 import { SongType } from '../types';
 
 const FAVORITE_SONGS_KEY = 'favorite_songs';

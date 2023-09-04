@@ -42,5 +42,6 @@ export type FormTypes = {
 };
 
 export type MusicCardTypes = {
-  song: SongType
+  song: SongType,
+  isFavorited: boolean
 };

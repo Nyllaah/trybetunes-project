@@ -1,24 +1,27 @@
-import { useState } from 'react';
 import './MusicCards.css';
+import { useState } from 'react';
 import checkedHeart from '../images/checked_heart.png';
 import emptyHeart from '../images/empty_heart.png';
 import { MusicCardTypes } from '../types';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
 
-export default function MusicCard({ song }: MusicCardTypes) {
-  const [favorited, setFavorite] = useState(false);
-
-  function addRemoveFavorite() {
-    if (favorited) {
-      addSong(song);
-    } else {
-      removeSong(song);
-    }
-  }
-
-  addRemoveFavorite();
-
+export default function MusicCard({
+  song, isFavorited }: MusicCardTypes) {
   const { trackId, trackName, previewUrl } = song;
+  const [favorited, setFavorited] = useState(isFavorited);
+
+  const handleChange = async (e) => {
+    const { target: { checked } } = e;
+    setFavorited(checked);
+    if (checked) {
+      await addSong(song);
+      console.log('add');
+    } else {
+      await removeSong(song);
+      console.log('remove');
+    }
+    console.log('chamou');
+  };
 
   return (
     <>
@@ -31,7 +34,7 @@ export default function MusicCard({ song }: MusicCardTypes) {
       </label>
       <input
         type="checkbox"
-        onChange={ () => setFavorite(!favorited) }
+        onChange={ handleChange }
         checked={ favorited }
         id={ `checkbox-music-${trackId}` }
         className="favorite-btn"
