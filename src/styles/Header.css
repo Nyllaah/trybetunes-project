@@ -1,0 +1,55 @@
+header {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: 100vh;
+  justify-content: space-between;
+  width: 250px;
+}
+
+.logo {
+  flex-shrink: 0;
+  height: 95.714px;
+  margin-left: 40px;
+  margin-top: 40px;
+  width: 170.814px;
+}
+
+nav {
+  color: #444955;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  height: 25vh;
+  justify-content: space-between;
+  letter-spacing: 0.48px;
+  line-height: normal;
+  margin: 40px;
+  text-transform: capitalize;
+}
+
+nav img {
+  flex-shrink: 0;
+  height: 24.922px;
+  margin-right: 20px;
+  width: 24.922px;
+}
+
+nav div {
+  align-items: center;
+  display: flex;
+}
+
+.username {
+  color: #444955;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.48px;
+  line-height: normal;
+  margin: 40px;
+  text-transform: capitalize;
+}
