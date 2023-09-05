@@ -15,3 +15,38 @@
   margin-bottom: 65.1px;
   width: 187.186px;
 }
+
+.login-input {
+  border: 1px solid #003be5;
+  border-radius: 100px;
+  flex-shrink: 0;
+  height: 40px;
+  margin-bottom: 9px;
+  text-align: center;
+  width: 400px;
+}
+
+.login-input::placeholder {
+  color: #003be5;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+}
+
+.login-btn {
+  background: #003be5;
+  border-radius: 100px;
+  color: white;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  height: 40px;
+  letter-spacing: 0.42px;
+  line-height: normal;
+  text-align: center;
+  text-transform: uppercase;
+  width: 400px;
+}
