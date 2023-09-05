@@ -10,6 +10,8 @@ export default function Form(
     placeholder,
     btnTestId,
     disabled,
+    iptClass,
+    btnClass,
     btnText }: FormTypes,
 ) {
   return (
@@ -17,6 +19,7 @@ export default function Form(
       onSubmit={ onSubmit }
     >
       <input
+        className={ iptClass }
         data-testid={ iptTestId }
         type={ iptType }
         value={ inputValue }
@@ -24,6 +27,7 @@ export default function Form(
         placeholder={ placeholder }
       />
       <button
+        className={ btnClass }
         disabled={ disabled }
         data-testid={ btnTestId }
       >

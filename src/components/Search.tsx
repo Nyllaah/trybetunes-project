@@ -4,6 +4,7 @@ import Loading from './Loading';
 import { AlbumType } from '../types';
 import AlbumList from './AlbumList';
 import Form from './Form';
+import '../styles/Search.css';
 
 export default function Search() {
   const [iptValue, setIptValue] = useState<string>('');
@@ -30,21 +31,27 @@ export default function Search() {
   if (isLoading) return <Loading />;
 
   return (
-    <>
-      <Form
-        onSubmit={ handleSearchBtn }
-        iptType="text"
-        iptTestId="search-artist-input"
-        inputValue={ iptValue }
-        onChange={ ({ target }) => setIptValue(target.value) }
-        btnTestId="search-artist-button"
-        disabled={ iptValue.length < 2 }
-        btnText="Pesquisar"
-      />
+    <div className="search">
+      <div className="form-container">
+        <Form
+          onSubmit={ handleSearchBtn }
+          iptType="text"
+          iptTestId="search-artist-input"
+          inputValue={ iptValue }
+          onChange={ ({ target }) => setIptValue(target.value) }
+          btnTestId="search-artist-button"
+          disabled={ iptValue.length < 2 }
+          btnText="Pesquisar"
+          iptClass="search-input"
+          btnClass="search-btn"
+          placeholder="Nome do artista"
+        />
+      </div>
+      <div className="result-container">
+        {showSearchResult && (<span>{`Resultado de álbuns de: ${currentSearch}`}</span>)}
 
-      {showSearchResult && (<span>{`Resultado de álbuns de: ${currentSearch}`}</span>)}
-
-      <AlbumList searchResult={ searchResult } resultNotFound={ resultNotFound } />
-    </>
+        <AlbumList searchResult={ searchResult } resultNotFound={ resultNotFound } />
+      </div>
+    </div>
   );
 }

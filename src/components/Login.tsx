@@ -34,6 +34,8 @@ export default function Login() {
             btnTestId="login-submit-button"
             disabled={ nameIpt.name.length < 3 }
             btnText="Entrar"
+            iptClass="login-input"
+            btnClass="login-btn"
           />
         )
         : <Loading />}
