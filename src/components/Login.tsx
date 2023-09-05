@@ -20,7 +20,7 @@ export default function Login() {
   };
 
   return (
-    <div className="login">
+    <div className="login-container">
       <img className="logo-img" src={ logo } alt="logo" />
       {!isLoading
         ? (
