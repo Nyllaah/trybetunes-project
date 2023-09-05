@@ -1,4 +1,4 @@
-import './MusicCards.css';
+import '../styles/MusicCards.css';
 import { useState } from 'react';
 import checkedHeart from '../images/checked_heart.png';
 import emptyHeart from '../images/empty_heart.png';
