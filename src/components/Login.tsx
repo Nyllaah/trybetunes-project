@@ -36,6 +36,7 @@ export default function Login() {
             btnText="Entrar"
             iptClass="login-input"
             btnClass="login-btn"
+            formClass="login-form"
           />
         )
         : <Loading />}

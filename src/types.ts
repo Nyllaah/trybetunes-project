@@ -41,7 +41,8 @@ export type FormTypes = {
   disabled: boolean,
   btnText: string,
   iptClass: string,
-  btnClass: string
+  btnClass: string,
+  formClass: string
 };
 
 export type MusicCardTypes = {

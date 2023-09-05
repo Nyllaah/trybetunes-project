@@ -17,11 +17,16 @@
   width: 82.8vw;
 }
 
+.search-form {
+  display: flex;
+}
+
 .search-input {
   background: rgba(255, 255, 255, 0.5);
   border-radius: 23px;
   flex-shrink: 0;
   height: 40px;
+  margin-right: 10px;
   width: 400px;
 }
 
@@ -32,13 +37,21 @@
   font-weight: 400;
   letter-spacing: 0.42px;
   line-height: normal;
+  text-align: center;
   text-transform: uppercase;
 }
 
 .search-btn {
   background: #00d5e2;
   border-radius: 23px;
+  color: white;
   flex-shrink: 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
   height: 40px;
+  letter-spacing: 0.42px;
+  line-height: normal;
+  text-transform: uppercase;
   width: 114px;
 }

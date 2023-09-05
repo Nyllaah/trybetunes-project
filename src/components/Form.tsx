@@ -1,5 +1,4 @@
 import { FormTypes } from '../types';
-import '../styles/Form.css';
 
 export default function Form(
   { onSubmit,
@@ -12,10 +11,12 @@ export default function Form(
     disabled,
     iptClass,
     btnClass,
+    formClass,
     btnText }: FormTypes,
 ) {
   return (
     <form
+      className={ formClass }
       onSubmit={ onSubmit }
     >
       <input

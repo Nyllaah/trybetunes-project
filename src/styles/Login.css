@@ -16,6 +16,11 @@
   width: 187.186px;
 }
 
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
 .login-input {
   border: 1px solid #003be5;
   border-radius: 100px;

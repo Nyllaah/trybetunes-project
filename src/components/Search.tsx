@@ -45,6 +45,7 @@ export default function Search() {
           iptClass="search-input"
           btnClass="search-btn"
           placeholder="Nome do artista"
+          formClass="search-form"
         />
       </div>
       <div className="result-container">
