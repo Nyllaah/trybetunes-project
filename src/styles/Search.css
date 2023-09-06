@@ -1,21 +1,21 @@
 .search {
-  height: 100vh;
+  background-color: #eff3f9;
+  height: fit-content;
+  margin-left: 250px;
+  width: 100vw;
 }
 
 .form-container {
   align-items: center;
+  background-image: url('../images/bgazul-search.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: row;
   height: 37vh;
   justify-content: center;
 }
 
-.result-container {
-  background-color: #eff3f9;
-  flex-shrink: 0;
-  height: 63vh;
-  width: 82.8vw;
-}
 
 .search-form {
   display: flex;
@@ -27,6 +27,7 @@
   flex-shrink: 0;
   height: 40px;
   margin-right: 10px;
+  text-align: center;
   width: 400px;
 }
 
@@ -55,3 +56,22 @@
   text-transform: uppercase;
   width: 114px;
 }
+
+.result-container {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: center;
+  min-height: 63vh;
+}
+
+.result {
+  color: #003be5;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: normal;
+  margin-top: 63px;
+  text-align: center;
+}
+

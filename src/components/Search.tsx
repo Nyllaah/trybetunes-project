@@ -1,10 +1,13 @@
+/* eslint-disable no-nested-ternary */
 import { useState } from 'react';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
-import Loading from './Loading';
+import LoadingPage from './LoadingPage';
 import { AlbumType } from '../types';
 import AlbumList from './AlbumList';
 import Form from './Form';
 import '../styles/Search.css';
+import LoadingMsg from './LoadingMsg';
+import notFound from '../images/not-found.png';
 
 export default function Search() {
   const [iptValue, setIptValue] = useState<string>('');
@@ -28,8 +31,6 @@ export default function Search() {
     setIsLoading(false);
   };
 
-  if (isLoading) return <Loading />;
-
   return (
     <div className="search">
       <div className="form-container">
@@ -49,9 +50,34 @@ export default function Search() {
         />
       </div>
       <div className="result-container">
-        {showSearchResult && (<span>{`Resultado de álbuns de: ${currentSearch}`}</span>)}
+        {isLoading ? (
+          <LoadingMsg
+            containerStyle="search-loading-container"
+            msgStyle="search-loading-msg"
+            spinnerStyle="spinner-page"
+          />
+        ) : (
+          resultNotFound ? (
+            <div className="not-found-container">
+              <img src={ notFound } alt="not found icon" className="nothing-found-icon" />
+              <span className="nothing-found-msg">Nenhum álbum foi encontrado</span>
+            </div>
+          ) : (
+            showSearchResult && (
+              <>
+                <span
+                  className="result"
+                >
+                  {`Resultado de álbuns de: ${currentSearch}`}
 
-        <AlbumList searchResult={ searchResult } resultNotFound={ resultNotFound } />
+                </span>
+                <AlbumList
+                  searchResult={ searchResult }
+                />
+              </>
+            )
+          )
+        )}
       </div>
     </div>
   );

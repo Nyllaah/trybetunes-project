@@ -26,8 +26,7 @@ export type SongType = {
 export type AlbumSongsType = [AlbumType, ...SongType[]] | [];
 
 export type AlbumListTypes = {
-  searchResult: AlbumType[],
-  resultNotFound: boolean
+  searchResult: AlbumType[]
 };
 
 export type FormTypes = {
@@ -49,4 +48,10 @@ export type MusicCardTypes = {
   song: SongType,
   isFavorited: boolean,
   handleLoading?: (param: boolean) => void
+};
+
+export type LoadingMsgTypes = {
+  containerStyle: string,
+  msgStyle:string,
+  spinnerStyle:string
 };

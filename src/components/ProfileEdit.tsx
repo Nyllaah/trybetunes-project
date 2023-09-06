@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getUser, updateUser } from '../services/userAPI';
 import { UserType } from '../types';
-import Loading from './Loading';
+import Loading from './LoadingPage';
 
 export default function ProfileEdit() {
   const [isLoading, setIsLoading] = useState<boolean>(false);

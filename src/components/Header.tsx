@@ -1,12 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getUser } from '../services/userAPI';
-import Loading from './Loading';
 import '../styles/Header.css';
 import logo from '../images/logo.svg';
 import lupa from '../images/lupa.svg';
 import star from '../images/icon-star-empty.svg';
 import profileIcon from '../images/icon-profile.svg';
+import LoadingMsg from './LoadingMsg';
 
 export default function Header() {
   const [username, setUsername] = useState('');
@@ -21,8 +21,6 @@ export default function Header() {
     };
     getUsername();
   }, []);
-
-  if (isLoading) return <Loading />;
 
   return (
     <header data-testid="header-component">
@@ -41,10 +39,21 @@ export default function Header() {
           <NavLink data-testid="link-to-profile" to="/profile">Perfil</NavLink>
         </div>
       </nav>
-      <span className="username" data-testid="header-user-name">
-        <span>Olá, </span>
-        {username}
-      </span>
+      {isLoading ? (
+        <div className="loading-div">
+          <LoadingMsg
+            containerStyle="header-loading-container"
+            spinnerStyle="header-spinner"
+            msgStyle="header-loading-msg"
+          />
+        </div>
+      ) : (
+        <span className="username" data-testid="header-user-name">
+          <span>Olá, </span>
+          {username}
+        </span>
+      )}
+
     </header>
   );
 }

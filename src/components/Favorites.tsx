@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import MusicCard from './MusicCard';
 import { SongType } from '../types';
-import Loading from './Loading';
+import Loading from './LoadingPage';
 
 export default function Favorites() {
   const [isLoading, setIsLoading] = useState<boolean>(false);

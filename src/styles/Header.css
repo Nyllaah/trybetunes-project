@@ -5,6 +5,7 @@ header {
   flex-shrink: 0;
   height: 100vh;
   justify-content: space-between;
+  position: fixed;
   width: 250px;
 }
 
@@ -52,4 +53,8 @@ nav div {
   line-height: normal;
   margin: 40px;
   text-transform: capitalize;
+}
+
+.loading-div {
+  margin: 40px;
 }

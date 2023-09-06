@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import getMusics from '../services/musicsAPI';
-import Loading from './Loading';
+import Loading from './LoadingPage';
 import MusicCard from './MusicCard';
 import { AlbumType, SongType } from '../types';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
