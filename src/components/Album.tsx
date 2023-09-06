@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import getMusics from '../services/musicsAPI';
-import Loading from './LoadingPage';
+import LoadingMsg from './LoadingMsg';
 import MusicCard from './MusicCard';
 import { AlbumType, SongType } from '../types';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
+import '../styles/Album.css';
 
 export default function Album() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -28,20 +29,29 @@ export default function Album() {
     getSongs();
   }, [id]);
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <LoadingMsg />;
 
   return (
-    <>
-      <h1 data-testid="artist-name">{album?.artistName}</h1>
-      <h2 data-testid="album-name">{album?.collectionName}</h2>
-      {songList.map((song) => {
-        const isFav = favList.some((favSong) => favSong.trackId === song.trackId);
-        return (<MusicCard
-          key={ song.trackId }
-          song={ song }
-          isFavorited={ isFav }
-        />);
-      })}
-    </>
+    <div className="album-page">
+      <div className="title-container">
+        <img className="album-img" src={ album?.artworkUrl100 } alt="album arte" />
+        <div>
+          <h1 className="album-name" data-testid="album-name">{album?.collectionName}</h1>
+          <h2 className="artist-name" data-testid="artist-name">{album?.artistName}</h2>
+        </div>
+      </div>
+      <div className="songs-container">
+        <div className="album-list-container">
+          {songList.map((song) => {
+            const isFav = favList.some((favSong) => favSong.trackId === song.trackId);
+            return (<MusicCard
+              key={ song.trackId }
+              song={ song }
+              isFavorited={ isFav }
+            />);
+          })}
+        </div>
+      </div>
+    </div>
   );
 }

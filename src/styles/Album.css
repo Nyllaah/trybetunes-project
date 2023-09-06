@@ -1,0 +1,51 @@
+.album-page {
+  align-items: center;
+  background-color: #eff3f9;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  justify-content: center;
+  margin-left: 250px;
+  width: 100vw;
+}
+
+.title-container {
+  background-image: url('../images/bgazul-search.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 37vh;
+  width: 85vw;
+}
+
+.album-img {
+  height: 240px;
+  margin-left: 77px;
+  margin-right: 45px;
+  margin-top: 111px;
+  width: 240px;
+}
+
+.album-name {
+  color: white;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 30px */
+  margin-top: 153px;
+}
+
+.artist-name {
+  color: white;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+}
+
+.songs-container {
+  display: flex;
+  margin-left: 362px;
+  margin-top: 44px;
+}
+

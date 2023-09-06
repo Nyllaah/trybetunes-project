@@ -1,7 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import { useState } from 'react';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
-import LoadingPage from './LoadingPage';
 import { AlbumType } from '../types';
 import AlbumList from './AlbumList';
 import Form from './Form';
