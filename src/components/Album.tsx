@@ -29,35 +29,49 @@ export default function Album() {
     getSongs();
   }, [id]);
 
-  if (isLoading) return <LoadingMsg />;
-
   return (
     <div className="album-page">
-      <div className="title-container">
-        <img className="album-img" src={ album?.artworkUrl100 } alt="album arte" />
-        <div>
-          <h1
-            className="album-name-2"
-            data-testid="album-name"
-          >
-            {album?.collectionName}
+      {isLoading ? (
+        <LoadingMsg
+          containerStyle="album-loading-container"
+          msgStyle="search-loading-msg"
+          spinnerStyle="spinner-page"
+        />
+      ) : (
+        <>
+          <div className="title-container">
+            <img className="album-img" src={ album?.artworkUrl100 } alt="album arte" />
+            <div>
+              <h1
+                className="album-name-2"
+                data-testid="album-name"
+              >
+                {album?.collectionName}
 
-          </h1>
-          <h2 className="artist-name-2" data-testid="artist-name">{album?.artistName}</h2>
-        </div>
-      </div>
-      <div className="songs-container">
-        <div className="album-list-container">
-          {songList.map((song) => {
-            const isFav = favList.some((favSong) => favSong.trackId === song.trackId);
-            return (<MusicCard
-              key={ song.trackId }
-              song={ song }
-              isFavorited={ isFav }
-            />);
-          })}
-        </div>
-      </div>
+              </h1>
+              <h2
+                className="artist-name-2"
+                data-testid="artist-name"
+              >
+                {album?.artistName}
+
+              </h2>
+            </div>
+          </div>
+          <div className="songs-container">
+            <div className="album-list-container">
+              {songList.map((song) => {
+                const isFav = favList.some((favSong) => favSong.trackId === song.trackId);
+                return (<MusicCard
+                  key={ song.trackId }
+                  song={ song }
+                  isFavorited={ isFav }
+                />);
+              })}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }
