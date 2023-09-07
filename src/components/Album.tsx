@@ -36,8 +36,14 @@ export default function Album() {
       <div className="title-container">
         <img className="album-img" src={ album?.artworkUrl100 } alt="album arte" />
         <div>
-          <h1 className="album-name" data-testid="album-name">{album?.collectionName}</h1>
-          <h2 className="artist-name" data-testid="artist-name">{album?.artistName}</h2>
+          <h1
+            className="album-name-2"
+            data-testid="album-name"
+          >
+            {album?.collectionName}
+
+          </h1>
+          <h2 className="artist-name-2" data-testid="artist-name">{album?.artistName}</h2>
         </div>
       </div>
       <div className="songs-container">

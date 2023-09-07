@@ -1,4 +1,4 @@
-import '../styles/MusicCards.css';
+import '../styles/MusicCard.css';
 import { useState } from 'react';
 import checkedHeart from '../images/checked_heart.png';
 import emptyHeart from '../images/empty_heart.png';
@@ -27,22 +27,8 @@ export default function MusicCard({
   };
 
   return (
-    <>
+    <div className="music-card">
       <p>{trackName}</p>
-      <label
-        htmlFor={ `checkbox-music-${trackId}` }
-        data-testid={ `checkbox-music-${trackId}` }
-      >
-        <img src={ favorited ? checkedHeart : emptyHeart } alt="favorite" />
-      </label>
-      <input
-        type="checkbox"
-        onChange={ handleChange }
-        checked={ favorited }
-        id={ `checkbox-music-${trackId}` }
-        className="favorite-btn"
-      />
-
       <audio data-testid="audio-component" src={ previewUrl } controls>
         <track kind="captions" />
         O seu navegador não suporta o elemento
@@ -51,6 +37,19 @@ export default function MusicCard({
         <code>audio</code>
         .
       </audio>
-    </>
+      <input
+        type="checkbox"
+        onChange={ handleChange }
+        checked={ favorited }
+        id={ `checkbox-music-${trackId}` }
+        className="favorite-btn"
+      />
+      <label
+        htmlFor={ `checkbox-music-${trackId}` }
+        data-testid={ `checkbox-music-${trackId}` }
+      >
+        <img src={ favorited ? checkedHeart : emptyHeart } alt="favorite" />
+      </label>
+    </div>
   );
 }

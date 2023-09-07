@@ -6,6 +6,7 @@
   height: fit-content;
   justify-content: center;
   margin-left: 250px;
+  margin-right: 77px;
   width: 100vw;
 }
 
@@ -26,7 +27,7 @@
   width: 240px;
 }
 
-.album-name {
+.album-name-2 {
   color: white;
   font-size: 20px;
   font-style: normal;
@@ -35,7 +36,7 @@
   margin-top: 153px;
 }
 
-.artist-name {
+.artist-name-2 {
   color: white;
   font-size: 14px;
   font-style: normal;
@@ -45,7 +46,8 @@
 
 .songs-container {
   display: flex;
-  margin-left: 362px;
+  justify-content: center;
   margin-top: 44px;
+  width: 63vw;
 }
 

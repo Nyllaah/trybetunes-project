@@ -1,0 +1,17 @@
+.music-card {
+  align-items: center;
+  border-bottom: 1px solid #ccd4e1;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 18px;
+  padding-top: 18px;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: white;
+}
+
+.favorite-btn {
+  opacity: 0;
+  pointer-events: none;
+}
